@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_jenkins',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,6 +54,14 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, '{{ project_name }}/templates'),
+)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "{{ project_name }}/static"),
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -79,6 +88,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+JENKINS_TASKS = (
+    'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_pyflakes',
+)
 
 try:
     from local_settings import *

@@ -45,3 +45,6 @@ def prevent_tests_migrate(db):
 # dependency on one of the apps in MIGRATION_MODULES that you've skipped
 # (e.g. a dependency on the contenttypes app). To fix, simply add the new
 # app to MIGRATION_MODULES.
+
+
+PROJECT_APPS = ('{{ project_name }}')
