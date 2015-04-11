@@ -98,3 +98,7 @@ try:
     from local_settings import *
 except ImportError:
     pass
+
+if DEBUG:
+    INSTALLED_APPS += ('debug_toolbar.apps.DebugToolbarConfig',)
+    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
