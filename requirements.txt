@@ -1,3 +1,4 @@
+gunicorn
 django
 dj_database_url
 django-jenkins

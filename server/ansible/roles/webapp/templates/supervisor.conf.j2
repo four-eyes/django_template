@@ -1,0 +1,10 @@
+[program:{{ project_name }}]
+command = /opt/{{ project_name }}-gunicorn.sh
+user = root
+redirect_stderr = true
+stdout_logfile=/var/log/{{ project_name }}_stdout.log
+stderr_logfile=/var/log/{{ project_name }}_stderr.log
+autostart=true
+autorestart=true
+startsecs=10
+stopwaitsecs=600

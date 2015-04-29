@@ -12,4 +12,44 @@ Describe your project here.
 
 ## Installation
 
-Fill out with installation instructions for your project.
+### 1. Create virtualenv
+
+#### If you are using pyenv:
+
+```
+    pyenv virtualenv 3.4.2 {{ project_name }}
+    pyenv activate {{ project_name }}
+```
+
+#### If you are using virtualenv:
+
+```
+    virtualenv .env
+    source .env/bin/activate
+```
+
+### 2. Install dependencies
+
+```
+    pip install -r requirements-dev.txt
+```
+
+### 3. Create local_settings.py file
+
+```
+    cp {{ project_name }}/local_settings.py.default {{ project_name }}/local_settings.py
+```
+
+### 4. Create database in postgresql
+
+### 5. Migrate database
+
+```
+    python manage.py migrate
+```
+
+### 6. Create super user so you can login to admin panel
+
+```
+    python manage.py createsuperuser
+```

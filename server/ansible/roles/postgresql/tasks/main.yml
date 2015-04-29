@@ -1,0 +1,10 @@
+- name: install docker-py
+  pip: name={{ item }}
+  with_items:
+    - docker-py
+
+- name: create data directory for postgres
+  file: path=/data/{{ project_name }}-postgresql state=directory mode=0700
+
+- name: run postgres container
+  docker: image=postgres:9.4 ports=5432:5432 name={{ project_name }}-mypostgres env="POSTGRES_PASSWORD={{ postgres_password }},POSTGRES_USER={{ postgres_user }}" restart_policy="always" volumes="/data/postgresql:/var/lib/postgresql/data"

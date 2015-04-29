@@ -13,6 +13,14 @@ clean:
 test:
 	python manage.py test $(TESTS) --failfast --settings={{ project_name }}.test_settings
 
-install:
-	pip install -r requirements-dev.txt
-	python manage.py syncdb
+ansible_staging:
+	ansible-playbook -i server/ansible/staging server/ansible/site.yml -u root --ask-vault
+
+ansible_production:
+	ansible-playbook -i server/ansible/production server/ansible/site.yml -u root --ask-vault
+
+deploy_staging:
+	fab -R staging deploy
+
+deploy_production:
+	fab -R production deploy

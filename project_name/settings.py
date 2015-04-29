@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -21,9 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = os.environ.get('SECRET_KEY', 'knh+u5-a7eg240pkm1kr_eai(b#+3=jrqq)hyyzt9%yixufo&5')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -38,6 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_jenkins',
+
+    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -67,9 +68,15 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '{{ project_name }}',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
 }
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -88,6 +95,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/media')
 
 JENKINS_TASKS = (
     'django_jenkins.tasks.run_pep8',

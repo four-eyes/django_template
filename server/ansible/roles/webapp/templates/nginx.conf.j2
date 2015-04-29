@@ -1,0 +1,31 @@
+server {
+
+    listen 80;
+    server_name default;
+
+    access_log /var/log/nginx/{{ project_name }}.access.log;
+    error_log /var/log/nginx/{{ project_name }}.error.log;
+
+    location / {
+        include /etc/nginx/includes/proxy.conf;
+    }
+
+    location /admin {
+        auth_basic "closed area";
+        auth_basic_user_file /etc/nginx/{{ project_name }}_htpasswd;
+        include /etc/nginx/includes/proxy.conf;
+    }
+
+    location /static {
+        autoindex on;
+        alias /opt/{{ project_name }}/{{ project_name }}/staticfiles;
+        include /etc/nginx/includes/staticcache.conf;
+    }
+
+    location /media {
+        autoindex on;
+        alias /opt/{{ project_name }}/{{ project_name }}/mediafiles;
+        include /etc/nginx/includes/staticcache.conf;
+    }
+
+}
