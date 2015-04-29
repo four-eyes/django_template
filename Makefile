@@ -13,3 +13,6 @@ clean:
 test:
 	python manage.py test $(TESTS) --failfast --settings={{ project_name }}.test_settings
 
+install:
+	pip install -r requirements-dev.txt
+	python manage.py syncdb
