@@ -31,7 +31,7 @@
 
 - file: path=/etc/nginx/includes state=directory
 - name: Nginx proxy includes
-  template: src=proxy.conf.j2 dest=/etc/nginx/includes/proxy.conf
+  template: src=proxy.conf.j2 dest=/etc/nginx/includes/{{ project_name }}_proxy.conf
   notify: restart nginx
 - name: Nginx static cache include
   template: src=staticcache.conf.j2 dest=/etc/nginx/includes/staticcache.conf
