@@ -1,5 +1,5 @@
 - name: install libraries
-  apt: name={{ item }} state=present update_cache=yes
+  apt: name={ { item } } state=present update_cache=yes
   with_items:
     - python3-dev
     - python3-pip
@@ -24,7 +24,7 @@
 
 - name: local settings file
   template: src=local_settings.py.j2 dest=/opt/{{ project_name }}/{{ project_name }}/local_settings.py
-  notify: restart webapp
+  notify: restart {{ project_name }}
 
 - name: password for nginx
   htpasswd: path=/etc/nginx/webapp_htpasswd name=admin password={{ nginx_password }} owner=root group=www-data mode=0640
@@ -41,9 +41,9 @@
   notify: restart nginx
 
 - name: Nginx config for app
-  template: src=nginx.conf.j2 dest=/etc/nginx/sites-enabled/webapp.conf
+  template: src=nginx.conf.j2 dest=/etc/nginx/sites-enabled/{{ project_name }}.conf
   notify: restart nginx
 
 - name: Supervisor config for backend app
-  template: src=supervisor.conf.j2 dest=/etc/supervisor/conf.d/webapp.conf
+  template: src=supervisor.conf.j2 dest=/etc/supervisor/conf.d/{{ project_name }}.conf
   notify: restart supervisor

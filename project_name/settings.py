@@ -104,12 +104,8 @@ JENKINS_TASKS = (
     'django_jenkins.tasks.run_pyflakes',
 )
 
-RAVEN_CONFIG = {
-    'dsn': 'UPDATE ME',
-}
-
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass
 
@@ -118,4 +114,7 @@ if DEBUG:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
 
 if not DEBUG:
+    RAVEN_CONFIG = {
+        'dsn': 'UPDATE ME',
+    }
     INSTALLED_APPS += ('raven.contrib.django.raven_compat',)
