@@ -3,5 +3,6 @@
   sudo: yes
   user: root
   roles:
+    - general
     - webapp
     - postgresql

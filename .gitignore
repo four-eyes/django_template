@@ -3,3 +3,4 @@ local_settings.py
 reports/
 .env
 __pycache__
+stellar.yaml

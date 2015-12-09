@@ -10,3 +10,4 @@ pep8
 coverage
 flake8
 django-debug-toolbar
+stellar

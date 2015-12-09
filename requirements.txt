@@ -1,6 +1,4 @@
 gunicorn
 django
-dj_database_url
-django-jenkins
 psycopg2
 raven

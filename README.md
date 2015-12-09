@@ -6,7 +6,7 @@ Describe your project here.
 
 ## Prerequisites
 
-- Python 2.6 or 2.7
+- Python 3.5
 - pip
 - virtualenv (virtualenvwrapper is recommended for use during development)
 
@@ -17,7 +17,7 @@ Describe your project here.
 #### If you are using pyenv:
 
 ```
-    pyenv virtualenv 3.4.2 {{ project_name }}
+    pyenv virtualenv 3.5.1 {{ project_name }}
     pyenv activate {{ project_name }}
 ```
 
