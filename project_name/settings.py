@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_jenkins',
+    'loginas',
 
     'accounts',
 )
@@ -131,12 +131,7 @@ ATOMIC_REQUESTS = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/media')
-
-JENKINS_TASKS = (
-    'django_jenkins.tasks.run_pep8',
-    'django_jenkins.tasks.run_pyflakes',
-)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 try:
     from .local_settings import *
