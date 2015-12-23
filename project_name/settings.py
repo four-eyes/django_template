@@ -133,6 +133,8 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
+AUTH_USER_MODEL = 'accounts.User'
+
 try:
     from .local_settings import *
 except ImportError:
@@ -192,4 +194,3 @@ else:
         'raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
     ) + MIDDLEWARE_CLASSES
     SENTRY_CELERY_LOGLEVEL = logging.INFO
-    RAVEN_CONFIG['CELERY_LOGLEVEL'] = logging.INFO
