@@ -29,7 +29,7 @@ def install():
 
 def syncdb():
     with prefix('source /opt/{{ project_name }}/venv/bin/activate'):
-        run('/opt/{{ project_name }}/venv/bin/python /opt/{{ project_name }}/{{ project_name }}/manage.py syncdb')
+        run('/opt/{{ project_name }}/venv/bin/python /opt/{{ project_name }}/{{ project_name }}/manage.py migrate')
 
 
 def collect_static():

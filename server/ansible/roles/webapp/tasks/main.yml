@@ -5,7 +5,7 @@
   template: src=gunicorn.sh.j2 dest=/opt/{{ project_name }}-gunicorn.sh mode="u+x"
 
 - name: local settings file
-  template: src=local_settings.py.j2 dest=/opt/{{ project_name }}/{{ project_name }}/local_settings.py
+  template: src=local_settings.py.j2 dest=/opt/{{ project_name }}/{{ project_name }}/{{ project_name }}/local_settings.py
   notify: restart {{ project_name }}
 
 - name: password for nginx

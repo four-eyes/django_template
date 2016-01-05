@@ -1,0 +1,6 @@
+staging:
+  type: deploy
+  script:
+    - make deploy_staging
+  only:
+    - master
