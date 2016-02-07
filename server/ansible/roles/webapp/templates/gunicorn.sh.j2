@@ -27,6 +27,6 @@ exec /opt/{{ project_name }}/venv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application
   --name $NAME \
   --workers $NUM_WORKERS \
   --user=$USER --group=$GROUP \
-  --bind=localhost:{{ gunicorn_port }} \
+  --bind=localhost:{ { gunicorn_port } } \
   --log-level=debug \
   --log-file=/var/log/{{ project_name }}.log

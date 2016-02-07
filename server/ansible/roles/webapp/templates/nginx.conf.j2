@@ -1,7 +1,7 @@
 server {
 
     listen 80;
-    server_name {{ domain }};
+    server_name { { host } };
 
     access_log /var/log/nginx/{{ project_name }}.access.log;
     error_log /var/log/nginx/{{ project_name }}.error.log;

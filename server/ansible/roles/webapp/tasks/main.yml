@@ -1,5 +1,5 @@
 - name: Create backend directory
-  file: path=/opt/{{ project_name }}/{{ project_name }} state=directory
+  file: path=/opt/{{ project_name }}/{{ project_name }}/{{ project_name }} state=directory
 
 - name: gunicorn file
   template: src=gunicorn.sh.j2 dest=/opt/{{ project_name }}-gunicorn.sh mode="u+x"
