@@ -51,7 +51,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.get_full_name()
 
     def get_short_name(self):

@@ -43,6 +43,7 @@ class AdminUserChangeForm(UserChangeForm):
 
 
 class UserAdmin(DjangoUserAdmin):
+    change_form_template = 'loginas/change_form.html'
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name', 'email')}),
