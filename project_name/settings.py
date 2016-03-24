@@ -111,7 +111,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 AUTH_USER_MODEL = 'accounts.User'
 
-DEFAULT_FROM_EMAIL = '{{ project_name }}'
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 
