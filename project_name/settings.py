@@ -1,34 +1,17 @@
 """
 Django settings for {{ project_name }} project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
 """
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import logging
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'set me')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
-
-
-# Application definition
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -82,8 +65,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "{{ project_name }}/static"),
 )
 
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -95,8 +76,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-# Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -125,15 +104,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ATOMIC_REQUESTS = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
-
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 AUTH_USER_MODEL = 'accounts.User'
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
 
 try:
     from .local_settings import *
@@ -147,6 +126,7 @@ if DEBUG:
     MIDDLEWARE_CLASSES += (
         'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
+    TEMPLATES[0]['OPTIONS']['debug'] = True
 else:
     INSTALLED_APPS += ('raven.contrib.django.raven_compat',)
     LOGGING = {
