@@ -23,7 +23,7 @@
   notify: restart nginx
 
 - name: Nginx config for app
-  template: src=nginx.conf.j2 dest=/etc/nginx/sites-enabled/{{ project_name }}.conf
+  template: src=nginx.conf.j2 dest=/etc/nginx/conf.d/{{ project_name }}.conf
   notify: restart nginx
 
 - name: Supervisor config for backend app

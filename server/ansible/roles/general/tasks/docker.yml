@@ -1,0 +1,23 @@
+- name: check if docker exists
+  command: docker
+  register: docker_exists
+  ignore_errors: True
+
+- name: create docker group
+  group: name=docker state=present
+
+- name: add user ubuntu to docker group
+  user: name=ubuntu groups=docker append=yes
+
+- name: install wget
+  apt: name=wget state=present update_cache=yes
+
+- name: install docker
+  shell: wget -qO- https://get.docker.com/ | sh
+  when: docker_exists|failed
+
+- name: install docker-py
+  pip: name=docker-py
+
+- name: setup docker-gc
+  cron: name="run docker-gc" hour=3 job="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"

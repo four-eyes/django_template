@@ -7,6 +7,8 @@
     - libpq-dev
     - supervisor
     - python-passlib
+    - libjpeg-dev
+    - zlib1g-dev
 
 - name: upgrade pip3
   pip: name=pip executable=pip3 state=latest
@@ -17,11 +19,6 @@
 - name: install virtualenv
   pip: name=virtualenv executable=pip3
 
-- shell: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
-- apt_repository: repo='deb https://get.docker.com/ubuntu docker main' state=present
+- include: docker.yml
 
-- name: Install docker
-  apt: name=lxc-docker state=present
-
-- name: install docker-py
-  pip: name=docker-py
+- include: nginx.yml

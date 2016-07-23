@@ -1,0 +1,22 @@
+- name: NGINX | Adding NGINX signing key
+  apt_key: url=http://nginx.org/keys/nginx_signing.key state=present
+
+- name: NGINX | Adding sources.list deb url for NGINX
+  lineinfile: dest=/etc/apt/sources.list line="deb http://nginx.org/packages/mainline/ubuntu/ trusty nginx"
+
+- name: NGINX | Updating apt cache
+  apt:
+    update_cache: yes
+
+- name: NGINX | Installing NGINX
+  apt:
+    pkg: nginx
+    state: latest
+
+- name: NGINX | Starting NGINX
+  service:
+    name: nginx
+    state: started
+
+- name: install passlib
+  pip: name=passlib state=present

@@ -1,2 +1,8 @@
 [production]
-root@production
+production ansible_user=root
+
+[production:vars]
+postgres_port=
+postgres_user=
+gunicorn_port=
+host=

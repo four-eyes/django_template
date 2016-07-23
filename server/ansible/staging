@@ -1,2 +1,9 @@
 [staging]
-root@staging
+staging ansible_user=root
+
+[staging:vars]
+postgres_port=
+postgres_password=
+postgres_user=
+gunicorn_port=
+host=
