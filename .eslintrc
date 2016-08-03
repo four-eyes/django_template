@@ -13,11 +13,5 @@
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/jsx-indent-props": [1, 4],
         "react/jsx-no-bind": [0],
-        "react/jsx-sort-props": [0, {
-            ignoreCase: false,
-            callbacksLast: false,
-            shorthandFirst: false,
-            shorthandLast: false,
-        }],
     }
 }
