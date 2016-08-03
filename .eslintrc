@@ -1,0 +1,23 @@
+{
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "rules": {
+        "indent": [1, 4],
+        "max-len": [0],
+        "semi": ["error", "never"],
+        "linebreak-style": ["error", "unix"],
+        "no-unused-vars": [1],
+        "arrow-body-style": [1],
+        "react/jsx-indent": [1, 4],
+        "react/prop-types": [0],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/jsx-indent-props": [1, 4],
+        "react/jsx-no-bind": [0],
+        "react/jsx-sort-props": [0, {
+            ignoreCase: false,
+            callbacksLast: false,
+            shorthandFirst: false,
+            shorthandLast: false,
+        }],
+    }
+}

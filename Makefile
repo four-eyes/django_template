@@ -1,3 +1,7 @@
+SSH_KEY=
+
+-include Makefile.settings
+
 run:
 	python manage.py runserver
 

@@ -11,3 +11,4 @@ coverage
 flake8
 django-debug-toolbar
 stellar
+paramiko==2.0.0
