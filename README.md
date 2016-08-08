@@ -53,3 +53,13 @@ Describe your project here.
 ```
     python manage.py createsuperuser
 ```
+
+## Deploy using python 3
+
+Makefile example:
+
+```
+deploy_staging:
+    python deploy.py staging --action=deploy
+
+```

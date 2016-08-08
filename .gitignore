@@ -1,6 +1,13 @@
+.DS_Store
+/.idea
 *.pyc
+*.sqlite3
 local_settings.py
+settings/dev.py
 reports/
-.env
+staticfiles/media/
+env/
 __pycache__
-stellar.yaml
+mediafiles/
+node_modules/
+Makefile.settings
